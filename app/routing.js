@@ -1,17 +1,17 @@
 
 import Login from "./../ScreenComponents/Login.js";
 import Register from "./../ScreenComponents/Register.js";
-import Home from "./../ScreenComponents/Home.js";
+import GameList from "./../ScreenComponents/Games/GameList.js";
 import InboxIndex from "./../ScreenComponents/Inbox/Index.js";
 import ProjectsIndex from "./../ScreenComponents/Projects/Index.js";
 
 const page = '?page=';
 const NotFound = { template: '<p>404 Page not found</p>' };
-const HomeScreenComponent = {
-    route: `/${page}home`,
-    hash: '#Home',
-    name: 'Home',
-    component: Home
+const GameListScreenComponent = {
+    route: `/${page}GameList`,
+    hash: '#GameList',
+    name: 'GameList',
+    component: GameList
 };
 
 export default {
@@ -35,10 +35,10 @@ export default {
             component: Register
         },
         {
-            route: `/${page}home`,
-            hash: '#Home',
-            name: 'Home',
-            component: Home
+            route: `/${page}GameList`,
+            hash: '#GameList',
+            name: 'GameList',
+            component: GameList
         },
         {
             route: `/${page}inboxIndex`,
@@ -52,7 +52,7 @@ export default {
             name: 'ProjectsIndex',
             component: ProjectsIndex
         },
-        HomeScreenComponent
+        GameListScreenComponent
     ],
     'NotFoundScreenComponent': {
         route: undefined,
@@ -60,5 +60,5 @@ export default {
         name: 'NotFound',
         component: NotFound
     },
-    'HomeScreenComponent': HomeScreenComponent 
+    'GameListScreenComponent': GameListScreenComponent 
 };

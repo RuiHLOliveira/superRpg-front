@@ -18,6 +18,10 @@ export default {
                     body: data
                 })
                 .then( (response) => {
+                    if(!response.ok) {
+                        reject(response.statusText)
+                        return;
+                    }
                     response.json().then((json) => {
                         if(response.ok) {
                             //REQUEST SUCCESS
@@ -47,7 +51,6 @@ export default {
                 })
             } catch (error) {
                 //NETWORK ERROR
-                // console.log(error);
                 reject(error);
             }
         });

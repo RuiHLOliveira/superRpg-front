@@ -68,9 +68,9 @@ export default {
                 </button>
             </li>
             <li v-if="userAuth">
-                <button @click="route('Home')">
+                <button @click="route('GameList')">
                     <i class="fas fa-home"></i>
-                    Home
+                    GameList
                 </button>
             </li>
             <li v-if="userAuth">

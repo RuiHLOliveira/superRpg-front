@@ -100,7 +100,7 @@ const vm = new Vue({
         defineStartScreen () {
             if(window.localStorage.sRegisterToken !== ''){
                 let screenComponent = this.findFullScreenComponentByHash(location.hash);
-                this.routeTo(screenComponent.name == 'NotFound' ? routing.HomeScreenComponent.name : screenComponent.name);
+                this.routeTo(screenComponent.name == 'NotFound' ? routing.GameListScreenComponent.name : screenComponent.name);
             } else {
                 this.routeTo('Login');
             }

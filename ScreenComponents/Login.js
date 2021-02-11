@@ -51,7 +51,7 @@ export default {
                 window.localStorage.sRegisterToken = json.token;
                 window.localStorage.sRegisterRefreshToken = json.refresh_token;
                 notify.notify(json.message,'success');
-                EventBus.$emit('route','Home');
+                EventBus.$emit('route','GameList');
             })
             .catch((error) => {
                 console.error(error);

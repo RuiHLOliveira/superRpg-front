@@ -98,7 +98,6 @@ export default {
         // params.headers.delete('Authorization');
         params.headers.set("Authorization", window.localStorage.sRegisterToken);
         if(params.method == 'POST' || params.method == 'PUT') {
-            debugger
             params.headers.append('Content-Type','application/json');
         }
 

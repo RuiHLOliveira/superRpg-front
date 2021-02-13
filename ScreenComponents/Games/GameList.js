@@ -8,6 +8,9 @@ export default {
       return {
             busy: true,
             games: [],
+            showCreateGameForm: false,
+            createForm_name: "",
+            createForm_description: "",
         }
     },
     watch: {
@@ -32,7 +35,35 @@ export default {
                 this.busy = false;
                 notify.notify(error,'error');
             });
-        }
+        }, 
+        toggleCreateGameForms(){
+            this.showCreateGameForm = !this.showCreateGameForm;
+        },
+        createGame(){
+            this.busy = true;
+
+            let requestData = {};
+            const headers = new Headers();
+            requestData['url'] = config.serverUrl + "/games";
+            requestData['method'] = "POST";
+            requestData['headers'] = headers;
+            requestData ['data'] = {
+                'name': this.createForm_name,
+                'description' : this.createForm_description
+            };
+
+            request.fetch(requestData)
+            .then( ([response, dados]) => {
+                this.busy = false;
+                notify.notify(dados.message,'success');
+                this.loadGames();
+            })
+            .catch((error) => {
+                this.busy = false;
+                notify.notify(error,'error');
+            });
+
+        },
     },
     created () {
         this.loadGames();
@@ -57,9 +88,18 @@ export default {
             <!-- TITLE -->
             <h1 class="">Your Games</h1>
 
+            <button @click="toggleCreateGameForms()" class="mt-2 btn btn-success"> Create game </button>
+            <div v-if="showCreateGameForm == true">
+                <input type="text" v-model="createForm_name" placeholder="name"/>
+                <input type="text" v-model="createForm_description" placeholder="description"/>
+                <button @click="toggleCreateGameForms()" class="mt-2 btn btn-secondary"> Close </button>
+                <button @click="createGame()" class="mt-2 btn btn-success"> Create </button>
+
+            </div>
+
             <!-- BUSY LOADER -->
             <div class="loader" v-if="busy == true"></div>
-
+            
             <div v-else>
                 <div class="" 
                     v-for="game in games" :key="game.id"

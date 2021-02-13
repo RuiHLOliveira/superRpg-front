@@ -49,7 +49,7 @@ export default {
     template: `
     <div class="flexWrapper">
 
-        <div class="mainContainer">
+        <div class="mainContainer loginPage">
             <div>
                 <span>
                     <i class="fas fa-2x fa-dice"></i>

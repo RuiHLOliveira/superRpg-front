@@ -27,7 +27,6 @@ body {
     margin-bottom: 15px;
 }
 
-
 .active{
     display: block;
 }
@@ -35,6 +34,9 @@ body {
     display: none;
 }
 
+.loginPage {
+    max-width: 400px;
+}
 
 .modal_container{
     position: relative;

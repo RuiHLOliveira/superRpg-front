@@ -64,18 +64,13 @@ export default {
                 <div class="" 
                     v-for="game in games" :key="game.id"
                 >
-                    <div>
-                        <label class="">Name</label>
-                        <div class="">{{game.name}}</div>
-                    </div>
-
-                    <button 
-                        @click=""
-                        class="mt-2 btn btn-primary"
-                    >Enter</button>
+                    <label class="">Game:</label>
+                    <span class="">{{game.name}}</span>
+                    <button @click="" class="mt-2 btn btn-primary">Open</button>
                 </div>
                 <div v-if="games.length == 0">You havent subscribed to any game yet!</div>
             </div>
+            
         </div>
     </div>
     `

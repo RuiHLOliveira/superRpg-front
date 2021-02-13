@@ -21,20 +21,7 @@ export default {
             EventBus.$emit('route',name);
         },
         login(){
-
-            // const exception = (error) => {
-            //     console.error(error);
-            //     this.busy = false;
-            //     notify.notify('Your request failed. Please try again in a few seconds.', 'error');
-            // };
-
             this.busy = true;
-
-            const failFunction = (response, json) => {
-                this.busy = false;
-                EventBus.$emit('HANDLE_REQUEST_ERROR', {response, json});
-            };
-
             let requestData = {};
             const headers = new Headers();
             requestData['url'] = config.serverUrl + "/auth/login";
@@ -44,7 +31,6 @@ export default {
                 'email': this.email,
                 'password': this.password
             };
-
             request.fetch(requestData)
             .then(([response,json]) => {
                 this.busy = false;
@@ -61,12 +47,12 @@ export default {
             });
         },
     },
-    template: `
+    template: /*jsx*/`
     <div class="flexWrapper">
 
         <!--<application-menu></application-menu>-->
 
-        <div class="mainContainer">
+        <div class="mainContainer loginPage">
             <div>
                 <span>
                     <i class="fas fa-2x fa-dice"></i>
@@ -115,11 +101,6 @@ export default {
                     <i class="fas fa-user-plus"></i>
                     Register yourself
                 </button>
-
-                <!-- <button @click="route('Login')">
-                    <i class="fas fa-user-check"></i>
-                    Login
-                </button> -->
 
                 <div class="loader" v-if="busy"></div>
                 <notice-box></notice-box>

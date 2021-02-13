@@ -18,7 +18,7 @@ export default {
                     body: data
                 })
                 .then( (response) => {
-                    if(!response.ok) {
+                    if(!response.ok && response.status != 401) {
                         reject(response.statusText)
                         return;
                     }

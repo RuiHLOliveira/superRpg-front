@@ -89,10 +89,10 @@ const vm = new Vue({
             return true;
         },
         routeTo (screenComponentName){
-            if(!this.isAuthenticated()) {
-                screenComponentName = 'Login';
+            let fullScreenComponent = this.findFullScreenComponent(screenComponentName);
+            if( (fullScreenComponent.needAuthentication == true) && (this.isAuthenticated() == false)) {
+                fullScreenComponent = this.findFullScreenComponent('Login');
             }
-            const fullScreenComponent = this.findFullScreenComponent(screenComponentName);
             this.currentScreenComponent = fullScreenComponent.component;
             // history.pushState({}, fullScreenComponent.name, fullScreenComponent.route);
             location.hash = fullScreenComponent.name;

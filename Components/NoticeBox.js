@@ -15,6 +15,8 @@ export default {
     },
     methods: {
         showNotice(notice, noticeType, time){
+            this.notice = '';
+            this.noticeType = '';
             if(time == null) time = 5000;
             let vue = this;
             vue.notice = notice;

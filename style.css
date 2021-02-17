@@ -331,11 +331,11 @@ nav#sidebar ul li button:hover {
 
 .flexWrapper{
     display: flex;
-    
 }
 
 .mainContainer {
     width: 100%;
+    max-width: 1366px;
     margin: 0 auto;
     background-color: #eeeeee55;
     /* background-color: #eeeeee; */

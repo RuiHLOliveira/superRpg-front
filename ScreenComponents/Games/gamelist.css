@@ -1,0 +1,15 @@
+
+.flex {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gameTitle {
+    font-size: 2rem;
+}
+
+.characterList {
+    background-color:#efefef;
+}

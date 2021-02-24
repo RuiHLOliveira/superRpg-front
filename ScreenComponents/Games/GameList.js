@@ -23,6 +23,9 @@ export default {
     components: {
     },
     methods: {
+        route(routeName){
+            EventBus.$emit('route', routeName);
+        },
         loadGames() {
             this.busy = true;
             const headers = new Headers();
@@ -158,6 +161,7 @@ export default {
             <h1 class="">Your Games</h1>
 
             <button @click="toggleCreateGameForms()" class="mt-4 btn btn-success"> Create game </button>
+            <button @click="route('SubscribeToGame')" class="mt-4 btn btn-success"> Subscribe to a game </button>
             <div v-if="showCreateGameForm == true">
                 <input type="text" v-model="createForm_name" placeholder="name"/>
                 <input type="text" v-model="createForm_description" placeholder="description"/>
@@ -200,8 +204,12 @@ export default {
                         </div>
 
                         <div class="mt-2" v-for="character in game.characters"
-                            :key="game.id"
+                            :key="game.characters.id"
                         >
+                            <button
+                                class="btn btn-sm btn-success"
+                                @click="chooseCharacter(character)"
+                            >Play</button>
                             {{character.name}}
                         </div>
 

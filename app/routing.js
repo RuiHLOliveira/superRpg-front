@@ -2,6 +2,7 @@
 import Login from "./../ScreenComponents/Login.js";
 import Register from "./../ScreenComponents/Register.js";
 import GameList from "./../ScreenComponents/Games/GameList.js";
+import SubscribeToGame from "./../ScreenComponents/Games/SubscribeToGame.js";
 import InboxIndex from "./../ScreenComponents/Inbox/Index.js";
 import ProjectsIndex from "./../ScreenComponents/Projects/Index.js";
 
@@ -58,7 +59,14 @@ export default {
             needAuthentication: true,
             component: ProjectsIndex
         },
-        GameListScreenComponent
+        GameListScreenComponent,
+        {
+            route: `/${page}subscribeToGame`,
+            hash: '#SubscribeToGame',
+            name: 'SubscribeToGame',
+            needAuthentication: true,
+            component: SubscribeToGame
+        }
     ],
     'NotFoundScreenComponent': {
         route: undefined,

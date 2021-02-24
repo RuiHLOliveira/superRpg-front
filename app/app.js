@@ -93,6 +93,10 @@ const vm = new Vue({
             if( (fullScreenComponent.needAuthentication == true) && (this.isAuthenticated() == false)) {
                 fullScreenComponent = this.findFullScreenComponent('Login');
             }
+            if(fullScreenComponent.name == 'NotFound'){
+                notify.notify('Page Not Found','error');
+                return;
+            }
             this.currentScreenComponent = fullScreenComponent.component;
             // history.pushState({}, fullScreenComponent.name, fullScreenComponent.route);
             location.hash = fullScreenComponent.name;
